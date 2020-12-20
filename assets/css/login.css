@@ -1,0 +1,191 @@
+.footer{
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.loginpage{
+    align-items: center;
+    background: #e9ecef;
+    display: -ms-flexbox;
+    display: flex;
+    height: 100vh;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+.login-box{
+    width: 360px;
+    font-family: "Source Sans Pro",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    height:300px;
+}
+.login-logo{
+    font-size: 2.1rem;
+    font-weight: 300;
+    text-align: center;
+    font-family:'Times New Roman', Times, serif;
+    color: #212529;
+    height: 64px;
+    background: #e9ecef;
+}
+.card{
+    height:auto;
+    box-shadow: 0 0 1px rgba(0,0,0,.125), 0 1px 3px rgba(0,0,0,.2);
+    margin-bottom: 1rem;
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+.card-body{
+    flex: 1 1 auto;
+}
+.login-card-body{
+    background: #fff;
+    border-top: 0;
+    color: #666;
+    padding: 20px;
+}
+.login-box-msg{
+    margin: 0;
+    padding: 0 20px 20px;
+    text-align: center;
+}
+.input-group{
+    width:100%;
+    padding-bottom:20px;
+}
+
+
+
+
+
+
+.org{
+    margin-left:12%;
+    background-color:pink;
+    
+}
+.org_head{
+    padding:10px;
+    padding-top:20px;
+}
+.organisation{
+    padding-top:45px;
+    padding-bottom:11px;
+}
+.orgg h2{
+    padding-bottom:25px;
+}
+.course{
+    font-family: "Montserrat", sans-serif;
+    font-size:25px;
+    font-weight: bolder;
+    margin-bottom:23px;
+}
+
+.footer li a{
+    color:white;
+}
+.adm_p{
+    line-height: 25px;
+    
+    font-family: "Crimson Text", serif;
+    font-weight: 600;
+    color:black;
+}
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  .transport li{
+    list-style-type:circle;
+    font-size: 15px;
+    color: #74777b;
+  }
+  .opacity{
+    background-color:rgb(10,10,10,0.8);
+    height:100%;
+    width:100%;
+  }
+  .exams{
+    padding-top:5%;
+  }
+  .parent{
+    display:flex;
+    width:100%;
+  }
+  .child2{
+    float:right;
+    width:50%;
+  }
+  .child1{
+    width:50%;
+  }
