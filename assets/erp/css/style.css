@@ -1,0 +1,18 @@
+.dark_mode{
+    background-color:#172b4d !important;
+}
+.table{
+    color:#fff;
+}
+.dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter, .dataTables_wrapper .dataTables_info, .dataTables_wrapper .dataTables_processing, .dataTables_wrapper .dataTables_paginate{
+    color:lightblue;
+}
+.active_live{
+    background-color:#5e72e4 !important;
+    border-radius:20px;
+}
+.brand_head{
+    width:100%;
+    color:#5e72e4;
+    font-weight:700;
+}

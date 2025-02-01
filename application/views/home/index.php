@@ -4,9 +4,9 @@
     <section class="main_content">
         <div class="container">
             <div class="row main_cont blog_viewer">
-            <?php $news_main_data=$this->Admin_model->table_column('news',$column='blog_id',$val=$news_id,'status','1'); 
+            <?php $news_main_data=$this->ERP_model->table_column('news',$column='blog_id',$val=$news_id,'status','1'); 
                 foreach($news_main_data as $news_main_row){
-                    $category = $this->Admin_model->table_column('categories','id',$news_main_row['category_id']);
+                    $category = $this->ERP_model->table_column('categories','id',$news_main_row['category_id']);
                     foreach($category as $cat_row){ ?>
                 <p class="tag_category"><?php echo $cat_row['category_name']; ?></p>
                     <?php } ?>
@@ -21,7 +21,7 @@
                 <div class="row mt-4">
                     <div class="col-md-8">
                     <a class="user_profile" href="<?php echo base_url(); ?>View_profile/<?php echo $news_main_row['user_id']; ?>">
-                        <?php $user_data = $this->Admin_model->table_column('user','id',$news_main_row['user_id']);
+                        <?php $user_data = $this->ERP_model->table_column('user','id',$news_main_row['user_id']);
                         foreach($user_data as $user_row){
                             if($user_row['img'] == ''){ ?>
                                 <img class="publiser_img" src="<?php echo base_url(); ?>assets/img/user/user.png">
@@ -41,7 +41,7 @@
                 </div>
                    
                     <p class="news_para"><?php echo $news_main_row['news_cont']; ?></p>
-                    <?php $sub_cont = $this->Admin_model->table_column('sub_cont_blog','blog_id',$news_main_row['blog_id']);
+                    <?php $sub_cont = $this->ERP_model->table_column('sub_cont_blog','blog_id',$news_main_row['blog_id']);
                     foreach($sub_cont as $sub_row){ ?>
                         <?php if($sub_row['sub_heading'] != ''){ ?>
                         <h5 class="sub_heading"><?php echo $sub_row['sub_heading']; ?></h5>
@@ -60,7 +60,7 @@
                 <?php } ?>
                 <div class="col-md-4">
                 <h2>Latest <span style="color:#007bff;">BLOGS</span></h2>
-                <?php $news_main_data=$this->Admin_model->side_news('news',$column='blog_id',$val=$news_id,'status','1'); 
+                <?php $news_main_data=$this->ERP_model->side_news('news',$column='blog_id',$val=$news_id,'status','1'); 
                 foreach($news_main_data as $news_main_row){ ?>
                 <a style="text-decoration:none;" href="<?php echo base_url(); ?>View_news/<?php echo $news_main_row['blog_id']; ?>">
                 <div class="side_data">
@@ -78,13 +78,13 @@
             <h4 style="margin-left:50px;">Trending</h4>
         <div class="slider" id="slider-container-1">
             <div class="home_most_viewed_main_column">
-            <?php $most_viewed = $this->Admin_model->table_column('news','status','1');
+            <?php $most_viewed = $this->ERP_model->table_column('news','status','1');
             foreach($most_viewed as $mv_row){ ?>
                 <div class="home_most_viewed_column scroll_cont shadow">
                     <a  href="<?php echo base_url(); ?>View_news/<?php echo $mv_row['blog_id']; ?>">
                     <div class="slide_img">
                         <img src="<?php echo base_url(); ?>assets/user/blogs/<?php echo $mv_row['news_image']; ?>" alt="" width="100%" height="100%">
-                        <?php $cat_data = $this->Admin_model->table_column('categories','id',$mv_row['category_id']);
+                        <?php $cat_data = $this->ERP_model->table_column('categories','id',$mv_row['category_id']);
                             foreach($cat_data as $cat_row){ ?>
                                 <div class="tag"><?php echo $cat_row['category_name']; ?></div>
                         <?php } ?>

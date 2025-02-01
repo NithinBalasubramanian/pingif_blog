@@ -119,31 +119,84 @@
           
          
 	
-
+          <!--- ERP --->
+          <h5 style="margin: 10px 10px; color: #fff">ERP</h5>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-plus-square"></i>
               <p>
-                <span style="color:#dee2e6">General Setting</span>
+                <span style="color:#dee2e6">Customers</span>
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               
               <li class="nav-item">
-                <a href="<?php echo base_url(); ?>View_admin/smtp/add_smtp" class="nav-link">
+                <a href="<?php echo base_url(); ?>View_admin/customer/create_customer" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>SMTP</p>
-                </a>
-                <a href="<?php echo base_url(); ?>View_admin/smtp/privacy_policy" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Privacy Policy</p>
+                  <p>Add Customer</p>
                 </a>
               </li>
-             
+              <li class="nav-item">
+                <a href="<?php echo base_url(); ?>View_admin/customer/list_customer" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>List Customers</p>
+                </a>
+              </li>
             </ul>
           </li>
-         
+
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon far fa-plus-square"></i>
+              <p>
+                <span style="color:#dee2e6">Purchase</span>
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              
+              <li class="nav-item">
+                <a href="<?php echo base_url(); ?>View_admin/products/create_products" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Purchase</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo base_url(); ?>View_admin/products/list_products" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>List Purchase</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon far fa-plus-square"></i>
+              <p>
+                <span style="color:#dee2e6">Repair Log</span>
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              
+              <li class="nav-item">
+                <a href="<?php echo base_url(); ?>View_admin/products/create_products" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Repair</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo base_url(); ?>View_admin/products/list_products" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>List Repairs</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          
+          
 		
           <!--------BILLING INFO------>
  
