@@ -1,241 +1,45 @@
 <?php $this->load->view('home/includes/header'); ?>
 <?php $this->load->view('home/includes/header_menu'); ?>
-<section class="main_content">
-    <div class="home_main_cont">
-    <div class="home_top_cont">
-        <?php $latest_1 = $this->Admin_model->latest('news','id','1');
-        foreach($latest_1 as $late_row){ ?>
-        <a class="home_top_left" style="color:black;" href="<?php echo base_url(); ?>View_news/<?php echo $late_row['blog_id']; ?>">
-            <div class="home_top_left_cont">
-                <div class="home_top_left_img">
-                    <img src="<?php echo base_url(); ?>assets/user/blogs/<?php echo $late_row['news_image']; ?>" alt="" width="100%" height="100%">
-                    <?php $cat_data = $this->Admin_model->table_column('categories','id',$late_row['category_id']);
-                            foreach($cat_data as $cat_row){ ?>
-                                <div class="tag"><?php echo $cat_row['category_name']; ?></div>
-                            <?php } ?>
-                </div>
-                <div class="home_top_left_head_cont">
-                    <h4><?php echo $late_row['news_heading']; ?></h4>
-                    <p><?php echo $late_row['news_preview']; ?></p>
-                </div>
-            </div>
-            <div class="home_top_left_ad">
-            <div class="ad_view_side">
-                <div class="ad_view_side_disp">
-                    <img src="<?php echo base_url(); ?>assets/ads/main_cont.jpg" width="100%" height="100%" alt="">
-                </div>
-            </div>
-            </div>
-        </a>
-        <?php } ?>
-        <div class="home_top_right">
-            <div class="home_top_right_cont">
-                <h4>Latest </h4>
-                <?php $latest_1 = $this->Admin_model->latest('news','id','4');
-                $i = 1;
-                foreach($latest_1 as $late_row){ 
-                    if($i != '1'){ ?>
-                <div class="home_top_right_post" style="background-image:url('<?php echo base_url(); ?>assets/user/blogs/<?php echo $late_row['news_image']; ?>');">
-                    <div class="home_top_right_post_top" >
-                        <a  href="<?php echo base_url(); ?>View_news/<?php echo $late_row['blog_id']; ?>">
-                        <div class="home_top_right_post_badge">
-                            <?php $cat_data = $this->Admin_model->table_column('categories','id',$late_row['category_id']);
-                            foreach($cat_data as $cat_row){ ?>
-                                <div class="tag_badge"><?php echo $cat_row['category_name']; ?></div>
-                            <?php } ?>
-                        </div>
-                        <div class="home_top_right_post_head">
-                            <h5><?php echo $late_row['news_heading']; ?></h5>
-                        </div>
-                        </a>
-                    </div>
-                </div>
-                <?php } $i++;} ?>
-            </div>
-        </div>
-    </div>
-    <div class="home_most_viewed" style="width:100%;position:relative;">
-            <h4 style="margin-left:50px;">Most Viewed</h4>
-        <div class="slider" id="slider-container">
-            <div class="home_most_viewed_main_column">
-            <?php $most_viewed = $this->Admin_model->table_column('news','status','1');
-            foreach($most_viewed as $mv_row){ ?>
-                <div class="home_most_viewed_column scroll_cont shadow">
-                    <a   href="<?php echo base_url(); ?>View_news/<?php echo $mv_row['blog_id']; ?>">
-                    <div class="slide_img">
-                        <img src="<?php echo base_url(); ?>assets/user/blogs/<?php echo $mv_row['news_image']; ?>" alt="" width="100%" height="100%">
-                        <?php $cat_data = $this->Admin_model->table_column('categories','id',$mv_row['category_id']);
-                            foreach($cat_data as $cat_row){ ?>
-                                <div class="tag"><?php echo $cat_row['category_name']; ?></div>
-                            <?php } ?>
-                    </div>
-                    <div class="mv_head">
-                    <h5><?php echo $mv_row['news_heading']; ?></h5>
-                    </div>
-                            </a>
-                </div>
-            <?php } ?>
-                <div onclick="prev()" class="control-prev-btn" style="margin-top: 90px;">
-                 <i class="fa fa-arrow-left"></i>
-                </div>
-                <div onclick="next()" class="control-next-btn" style="margin-top: 90px;">
-                    <i class="fa fa-arrow-right"></i>
-                </div>
-                <div class="overlay"></div>
-            </div>
-        </div>
-    </div>
 
-   
-    <div class="ad_view">
-        <div class="ad_view_disp">
-            <img src="<?php echo base_url(); ?>assets/ads/main_cont.jpg" width="100%" height="100%" alt="">
-        </div>
-    </div>
-    <div class="home_most_viewed" style="width:100%;position:relative;">
-            <h4 style="margin-left:50px;">Trending</h4>
-        <div class="slider" id="slider-container-1">
-            <div class="home_most_viewed_main_column">
-            <?php $most_viewed = $this->Admin_model->table_column('news','status','1');
-            foreach($most_viewed as $mv_row){ ?>
-                <div class="home_most_viewed_column scroll_cont shadow">
-                    <a  href="<?php echo base_url(); ?>View_news/<?php echo $mv_row['blog_id']; ?>">
-                    <div class="slide_img">
-                        <img src="<?php echo base_url(); ?>assets/user/blogs/<?php echo $mv_row['news_image']; ?>" alt="" width="100%" height="100%">
-                        <?php $cat_data = $this->Admin_model->table_column('categories','id',$mv_row['category_id']);
-                            foreach($cat_data as $cat_row){ ?>
-                                <div class="tag"><?php echo $cat_row['category_name']; ?></div>
-                        <?php } ?>
-                    </div>
-                    <div class="mv_head">
-                    <h5><?php echo $mv_row['news_heading']; ?></h5>
-                    </div>
-                    </a>
-                </div>
-            <?php } ?>
-                <div onclick="prev1()" class="control-prev-btn" style="margin-top: 90px;">
-                 <i class="fa fa-arrow-left"></i>
-                </div>
-                <div onclick="next1()" class="control-next-btn" style="margin-top: 90px;">
-                    <i class="fa fa-arrow-right"></i>
-                </div>
-                <div class="overlay"></div>
-            </div>
-        </div>
-    </div>
 
-    <div class="ad_view">
-        <div class="ad_view_disp">
-            <img src="<?php echo base_url(); ?>assets/ads/main_cont.jpg" width="100%" height="100%" alt="">
-        </div>
-    </div>
-   <div class="bottom_blog_disp ">
-    <div class="bottom_blog_disp_content">
-        <div class="bottom_blog_disp_1 disp_child">
-            <div class="bottom_head">
-                <h5>Tech & Automobile</h5>
-            </div>
-            <div class="bottom_blog_disp_12">
-            <?php $most_viewed = $this->Admin_model->table_column('news','status','1');
-            foreach($most_viewed as $mv_row){ ?>
-            <div class="bottom_blog_cont">
-                <a  href="<?php echo base_url(); ?>View_news/<?php echo $mv_row['blog_id']; ?>">
-                <div class="bottom_cont_img">
-                    <img src="<?php echo base_url(); ?>assets/user/blogs/<?php echo $mv_row['news_image']; ?>" alt="" width="100%" height="100%">
-                    <?php $cat_data = $this->Admin_model->table_column('categories','id',$mv_row['category_id']);
-                            foreach($cat_data as $cat_row){ ?>
-                                <div class="tag"><?php echo $cat_row['category_name']; ?></div>
-                    <?php } ?>
-                </div>
-                <div class="bottom_cont_head">
-                    <h6><?php echo $mv_row['news_heading']; ?></h6>
-                </div>
-               </a>
-            </div>
-            <?php } ?>
-        </div>
-        </div>
-        <div class="bottom_blog_disp_2 disp_child">
-            <div class="bottom_head">
-                <h5>Entertainment &Lifestyle</h5>
-            </div>
-            <div class="bottom_blog_disp_12">
-            <?php $most_viewed = $this->Admin_model->table_column('news','status','1');
-            foreach($most_viewed as $mv_row){ ?>
-            <div class="bottom_blog_cont">
-                <a  href="<?php echo base_url(); ?>View_news/<?php echo $mv_row['blog_id']; ?>">
-                <div class="bottom_cont_img">
-                    <img src="<?php echo base_url(); ?>assets/user/blogs/<?php echo $mv_row['news_image']; ?>" alt="" width="100%" height="100%">
-                    <?php $cat_data = $this->Admin_model->table_column('categories','id',$mv_row['category_id']);
-                            foreach($cat_data as $cat_row){ ?>
-                                <div class="tag"><?php echo $cat_row['category_name']; ?></div>
-                    <?php } ?>
-                </div>
-                <div class="bottom_cont_head">
-                    <h6><?php echo $mv_row['news_heading']; ?></h6>
-                </div>
-                </a>
-            </div>
-            <?php } ?>
-        </div>
-        </div>
-        <div class="bottom_blog_disp_3 disp_child">
-            <div class="bottom_head">
-                <h5>News & Buisness NEWS</h5>
-            </div>
-            <div class="bottom_blog_disp_12">
-            <?php $most_viewed = $this->Admin_model->table_column('news','status','1');
-            foreach($most_viewed as $mv_row){ ?>
-            <div class="bottom_blog_cont">
-                <a  href="<?php echo base_url(); ?>View_news/<?php echo $mv_row['blog_id']; ?>">
-                <div class="bottom_cont_img">
-                    <img src="<?php echo base_url(); ?>assets/user/blogs/<?php echo $mv_row['news_image']; ?>" alt="" width="100%" height="100%">
-                    <?php $cat_data = $this->Admin_model->table_column('categories','id',$mv_row['category_id']);
-                            foreach($cat_data as $cat_row){ ?>
-                                <div class="tag"><?php echo $cat_row['category_name']; ?></div>
-                    <?php } ?>
-                </div>
-                <div class="bottom_cont_head">
-                    <h6><?php echo $mv_row['news_heading']; ?></h6>
-                </div>
-                </a>
-            </div>
-            <?php } ?>
-        </div>
-        </div>
-    </div>
-   </div>
-    </div>
-</section>
+<?php $this->load->view('home/sections/intro'); ?>
+
+ 
+  <main id="main">
+    <!--<section id="featured-services">-->
+    <!--  <div class="container">-->
+    <!--    <div class="row">-->
+
+    <!--      <div class="col-lg-4 box">-->
+    <!--        <i class="ion-ios-bookmarks-outline"></i>-->
+    <!--        <h4 class="title"><a href="">Lorem Ipsum Delino</a></h4>-->
+    <!--        <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>-->
+    <!--      </div>-->
+
+    <!--      <div class="col-lg-4 box box-bg">-->
+    <!--        <i class="ion-ios-stopwatch-outline"></i>-->
+    <!--        <h4 class="title"><a href="">Dolor Sitema</a></h4>-->
+    <!--        <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>-->
+    <!--      </div>-->
+
+    <!--      <div class="col-lg-4 box">-->
+    <!--        <i class="ion-ios-heart-outline"></i>-->
+    <!--        <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>-->
+    <!--        <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>-->
+    <!--      </div>-->
+
+    <!--    </div>-->
+    <!--  </div>-->
+    <!--</section>-->
+    
+    <?php $this->load->view('home/sections/about'); ?>
+    <?php $this->load->view('home/sections/services'); ?>
+    <?php $this->load->view('home/sections/actions'); ?>
+    <?php $this->load->view('home/sections/portfolio'); ?>
+    <!--<?php $this->load->view('home/sections/skills'); ?> -->
+    <?php $this->load->view('home/sections/client'); ?>
+    <?php $this->load->view('home/sections/testimony'); ?>
+    <?php $this->load->view('home/sections/contact'); ?>
+    </main>
 
 <?php $this->load->view('home/includes/footer'); ?>
-
-<script>
-$(document).on('mouseover','.hover',function(){
-  $(this).find(".sub_hed").css('display','block');
-});
-$(document).on('mouseout','.hover',function(){
-        var a=$(this).val();
-  $("a").find(".sub_hed").css('display','none');
-});
-</script>
-<script>
-    function prev(){
-            document.getElementById('slider-container').scrollLeft -= 270;
-    }
-    
-    function next()
-    {
-            document.getElementById('slider-container').scrollLeft += 270;
-    }
-
-    function prev1(){
-            document.getElementById('slider-container-1').scrollLeft -= 270;
-    }
-    
-    function next1()
-    {
-            document.getElementById('slider-container-1').scrollLeft += 270;
-    }
-
-</script>

@@ -23,7 +23,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/pingifinit_blog/';
+// $config['base_url'] = 'https://future.indoglobaledu.com/';
+$config['base_url'] = 'http://localhost/future/';
 
 /*
 |--------------------------------------------------------------------------
