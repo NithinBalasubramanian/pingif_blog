@@ -24,6 +24,28 @@
         });
         $('#customer_entry').modal('hide');
     });
+
+    $(document).on('submit','#department_data',function(e){
+        e.preventDefault();
+        var formData = new FormData(this);
+		var url= $(this).attr('action');
+        $.ajax({
+            type:'POST',
+            url: url,
+            data:formData,
+            cache:false,
+            contentType: false,
+            processData: false,
+            success:function(data){
+                list_data();
+            },
+            error: function(data){
+                console.log("error");
+                console.log(data);
+            }
+        });
+        $('#department_entry').modal('hide');
+    });
     $(document).on('submit','#employee_data',function(e){
         e.preventDefault();
         var formData = new FormData(this);
