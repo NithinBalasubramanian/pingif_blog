@@ -40,8 +40,8 @@
                 <span class="nav-link-text">Employee</span>
               </a>
             </li>
-            <li class="nav-item <?php if($this->uri->segment(3) == 'departments'){ ?>active_live <?php } ?>">
-              <a class="nav-link" href="<?php echo base_url(); ?>Erp/View_erp/departments/list_departments">
+            <li class="nav-item <?php if($this->uri->segment(3) == 'products'){ ?>active_live <?php } ?>">
+              <a class="nav-link" href="<?php echo base_url(); ?>Erp/View_erp/products/list_products">
                 <i class="ni ni-tag text-orange"></i>
                 <span class="nav-link-text">Products</span>
               </a>

@@ -70,6 +70,33 @@
   </div>
 </div>
 
+
+<div class="modal fade" id="erp_products_entry" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Products</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+        <form action="<?php echo base_url(); ?>Erp/insert_cont/erp_products" method="post" id="product_data">
+      <div class="modal-body">
+      <input type="hidden" name="status" value="1">
+        <div class="form-group">
+            <label for="name">Products Name</label><span>*</span>
+            <input type="text" class="form-control" placeholder="Enter Department Name" name="name" required>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-sm btn-primary">Save changes</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
 <div class="modal fade" id="employee_entry" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog " role="document">
     <div class="modal-content">

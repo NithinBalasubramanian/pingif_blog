@@ -211,6 +211,56 @@ public function List_del_departments()
 	echo $output;
 }
 
+public function List_erp_products()
+{
+	$i=1;
+	$tablename = $this->input->post('table');
+	$output = '';
+	$cus_data = $this->ERP_model->table_column_desc_by_id($tablename,'status','1');
+	if(count($cus_data)>0){
+   foreach($cus_data as $cus_row){ 
+	   $output .= '<tr class="dark_mode">
+		   <td>'.$i.'</td>
+		   <td>'.strtoupper($cus_row['name']).'</td>
+		   <td>
+			<button class="btn btn-info btn-sm edit" data-url="'.base_url().'Erp/View_erp/products/edit_department" data-id="'.$cus_row['id'].'">Edit</button>
+			<button class="btn btn-danger btn-sm status_change" data-table="erp_products" data-id="'.$cus_row['id'].'">Delete</button>
+		   </td>
+	   </tr>';
+	$i++; }
+	}else{
+		$output .= '<tr class="dark_mode">
+						<td colspan="7" class="text-center">Table Is Empty</td>
+					</tr>';
+	}
+	echo $output;
+}
+
+public function List_del_erp_products()
+{
+	$i=1;
+	$tablename = $this->input->post('table');
+	$output = '';
+	$cus_data = $this->ERP_model->table_column_desc_by_id($tablename,'status','0');
+	if(count($cus_data)>0){
+   foreach($cus_data as $cus_row){ 
+	   $output .= '<tr class="dark_mode">
+		   <td>'.$i.'</td>
+		   <td>'.strtoupper($cus_row['name']).'</td>
+		   <td>
+			<button class="btn btn-success btn-sm status_change" data-table="erp_products" data-id="'.$cus_row['id'].'">Retain</button>
+			<button class="btn btn-warning btn-sm delete_permanent" data-table="erp_products" data-id="'.$cus_row['id'].'">Delete</button>
+		   </td>
+	   </tr>';
+	$i++; }
+	}else{
+		$output .= '<tr class="dark_mode">
+						<td colspan="7" class="text-center">Table Is Empty</td>
+					</tr>';
+	}
+	echo $output;
+}
+
 public function List_employee()
 {
 	$i=1;
