@@ -20,4 +20,5 @@
  
   <!-- <link rel="stylesheet" href=" https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" type="text/css"> -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/erp/css/style.css" type="text/css">
+  <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 </head>

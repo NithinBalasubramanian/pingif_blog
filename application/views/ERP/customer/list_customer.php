@@ -18,7 +18,7 @@
             </div>
             <div class="col-lg-6 col-5 text-right">
               <a href="javascript:void(0);" data-toggle="modal" data-target="#customer_entry" class="btn btn-sm btn-neutral">Add Customer</a>
-              <a href="javascript:void(0);" class="btn btn-sm btn-neutral list_del">List Deleted Customers</a>
+              <!-- <a href="javascript:void(0);" class="btn btn-sm btn-neutral list_del">List Deleted Customers</a> -->
             </div>
           </div>
         </div>
@@ -33,7 +33,7 @@
               <h3 class="text-white mb-0">List Customer</h3>
             </div>
             <div class="table-responsive ">
-              <table class="table align-items-center  table-flush mydatatable">
+              <table id="escalation" class="table align-items-center  table-flush mydatatable tablePage">
                 <thead class="">
                   <tr>
                     <th scope="col">S No</th>
@@ -73,6 +73,7 @@
             data: "table=" + table,
             success: function(data) {
                 $('.list').html(data);
+                $('#escalation').DataTable();
             }
         });
     }
@@ -83,24 +84,25 @@
         $(this).removeClass('list_del');
         $(this).addClass('list_cus');
     });
-    $(document).on('click','.list_cus',function(){
-        list_data();
-        $(this).html('List Deleted Customers');
-        $('#page_now').html('List Customers');
-        $(this).addClass('list_del');
-        $(this).removeClass('list_cus');
-    });
-    function list_del_data()
-    {
-        var base_url = "<?php echo base_url(); ?>";
-        var table = 'customer';
-        $.ajax({
-            url: base_url+'Erp/List_del_customer',
-            type: 'POST',
-            data: "table=" + table,
-            success: function(data) {
-                $('.list').html(data);
-            }
-        });
-    }
+    // $(document).on('click','.list_cus',function(){
+    //     list_data();
+    //     $(this).html('List Deleted Customers');
+    //     $('#page_now').html('List Customers');
+    //     $(this).addClass('list_del');
+    //     $(this).removeClass('list_cus');
+    // });
+    // function list_del_data()
+    // {
+    //     var base_url = "<?php echo base_url(); ?>";
+    //     var table = 'customer';
+    //     $.ajax({
+    //         url: base_url+'Erp/List_del_customer',
+    //         type: 'POST',
+    //         data: "table=" + table,
+    //         success: function(data) {
+    //             $('.list').html(data);
+    //             $('#escalation').DataTable();
+    //         }
+    //     });
+    // }
 </script>

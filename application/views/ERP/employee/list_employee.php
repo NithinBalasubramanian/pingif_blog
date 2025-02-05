@@ -18,7 +18,7 @@
             </div>
             <div class="col-lg-6 col-5 text-right">
               <a href="javascript:void(0);" data-toggle="modal" data-target="#employee_entry" class="btn btn-sm btn-neutral">Add Employee</a>
-              <a href="javascript:void(0);" class="btn btn-sm btn-neutral list_del">List Deleted Employees</a>
+              <!-- <a href="javascript:void(0);" class="btn btn-sm btn-neutral list_del">List Deleted Employees</a> -->
             </div>
           </div>
         </div>
@@ -33,7 +33,7 @@
               <h3 class="text-white mb-0">List Employees</h3>
             </div>
             <div class="table-responsive ">
-              <table class="table align-items-center  table-flush mydatatable">
+              <table id="escalation" class="table align-items-center  table-flush mydatatable">
                 <thead class="">
                   <tr>
                     <th scope="col">S No</th>
@@ -73,6 +73,7 @@
             data: "table=" + table,
             success: function(data) {
                 $('.list').html(data);
+                $('#escalation').DataTable();
             }
         });
     }
