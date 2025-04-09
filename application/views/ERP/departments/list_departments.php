@@ -62,12 +62,16 @@
     function list_data()
     {
         var base_url = "<?php echo base_url(); ?>";
+        console.log("baes",base_url);
+        
         var table = 'departments';
         $.ajax({
             url: base_url+'Erp/List_departments',
             type: 'POST',
             data: "table=" + table,
             success: function(data) {
+            console.log('test',data);
+            
                 $('.list').html(data);
             }
         });

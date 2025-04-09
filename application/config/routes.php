@@ -49,9 +49,50 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+
+// $route->get('employee', 'EmployeeController::index');
+
 $route['default_controller'] = 'Home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+// $route['default_controller'] = 'employee';
+// $route['employee'] = 'employee/index';
+// $route['employee/create'] = 'employee/create';
+// $route['employee/edit/(:num)'] = 'employee/edit/$1';
+// $route['employee/delete/(:num)'] = 'employee/delete/$1';
+// $route['employees'] = 'Erp/employees_list';
+// $route['employee'] = 'Employee'; 
+// $route['employee/(:any)'] = 'Employee/$1';
+//route url you wnat to map        =   controller name and its method
+$route['erp/departments']                = 'Employee/getDepartments';         // List employees   
+$route['erp/departments/update']          = 'Employee/update';          // Process update form
+$route['erp/employees']                = 'Employee/employees_list';         // List employees    
+$route['erp/employee/add']             = 'Employee/add_employee';             // Show add employee form
+$route['erp/employee/update']          = 'Employee/update_employee';          // Process update form
+// $route['employee/delete/(:num)']   = 'Erp/delete_employee/$1';       // Delete employee
+
+$route['erp/customers']          = 'Employee/getCustomers';          // Process update form
+$route['erp/customer/update']          = 'Employee/update_customer';   
+
+$route['erp/products']          = 'Employee/getProducts';          // Process update form
+$route['erp/product/update']          = 'Employee/update_product';   
+
+$route['erp/json/departments']                = 'Employee/getDepartmentJson';         // List employees   
+
+$route['erp/spare_list']          = 'Employee/spare_list';          // Process update form
+$route['erp/spares/add']             = 'Employee/add_spares'; 
+$route['erp/spares/update']          = 'Employee/update_spare'; 
+$route['erp/status_change'] = 'Employee/status_change'; // delete spares
+
+$route['erp/invoices']                = 'Employee/getInvoices';         // List employees   
+$route['erp/get_item_code/(:any)'] = 'Employee/get_item_code/$1';        // get spare and product code
+$route['erp/generate_invoice_pdf/(:num)'] = 'Employee/generate_invoice_pdf/$1';   // get pdf download
+$route['erp/save_invoice']                = 'Employee/save_invoice';      // save invoice into db
+
+$route['erp/invoice_generation_list']                = 'Employee/invoice_generation_list';  // list of invoice geneartion
+
+
 
 $route['admin'] 			= 'Admin';
 $route['View/(:any)/(:any)'] = 'Admin/view/$1/$2';

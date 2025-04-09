@@ -97,7 +97,7 @@
   </div>
 </div>
 
-<div class="modal fade" id="employee_entry" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="employee_entry" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog " role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -141,7 +141,7 @@
       </form>
     </div>
   </div>
-</div>
+</div> -->
 
 <div class="modal fade" id="supplier_entry" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog " role="document">
@@ -188,3 +188,5 @@
     </div>
   </div>
 </div>
+
+<!-- edit departments -->
