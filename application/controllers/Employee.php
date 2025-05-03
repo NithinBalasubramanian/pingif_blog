@@ -24,7 +24,7 @@ class Employee extends CI_Controller {
         // print_r($data); die;
     
         // Load the view and pass the employees data
-        $this->load->view('erp/employee/index', $data);
+        $this->load->view('ERP/employee/index', $data);
     }
     
 
@@ -105,7 +105,7 @@ class Employee extends CI_Controller {
             'name' => $this->input->post('name')
         );
         $this->Employee_model->update_department($id, $data);
-        redirect('erp/departments'); // redirect to departments list after update
+        redirect('ERP/departments'); // redirect to departments list after update
     }
 
     // fetch department employees
@@ -125,7 +125,7 @@ class Employee extends CI_Controller {
         $data['customers'] = $this->Employee_model->get_all_customers();
     
         // Load the view and pass the employees data
-        $this->load->view('erp/customer/index', $data);
+        $this->load->view('ERP/customer/index', $data);
     }
 
     //update customer
@@ -155,7 +155,7 @@ class Employee extends CI_Controller {
         $data['products'] = $this->Employee_model->get_all_products();
     // print_r($data);die;
         // Load the view and pass the employees data
-        $this->load->view('erp/products/index', $data);
+        $this->load->view('ERP/products/index', $data);
     }
 
      //update customer
@@ -232,7 +232,7 @@ class Employee extends CI_Controller {
         $data['spares'] = $this->Employee_model->get_all_spares();
     // print_r($data);die;
         // Load the view and pass the employees data
-        $this->load->view('erp/spares/spare_list', $data);
+        $this->load->view('ERP/spares/spare_list', $data);
     }
 
      //update spares
@@ -363,7 +363,7 @@ class Employee extends CI_Controller {
     // invoice genartion list
     public function invoice_generation_list(){
         $data['invoices_lists'] = $this->Employee_model->get_all_invoices_list();
-        $this->load->view('erp/invoices/invoice_generation_list', $data); // Fix typo in 'invoices' folder name
+        $this->load->view('ERP/invoices/invoice_generation_list', $data); // Fix typo in 'invoices' folder name
     }
     
 }

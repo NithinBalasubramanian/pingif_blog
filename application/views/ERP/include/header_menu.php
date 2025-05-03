@@ -122,12 +122,12 @@
                 <span class="nav-link-text">GST Setting</span>
               </a>
             </li>
-            <li class="nav-item <?php if($this->uri->segment(3) == 'smtp'){ ?>active_live <?php } ?>"">
+            <!-- <li class="nav-item <?php if($this->uri->segment(3) == 'smtp'){ ?>active_live <?php } ?>"">
               <a class="nav-link" href="<?php echo base_url(); ?>Erp/View_erp/setting/smtp">
                 <i class="ni ni-key-25 text-dark"></i>
                 <span class="nav-link-text">SMTP Setting</span>
               </a>
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>
