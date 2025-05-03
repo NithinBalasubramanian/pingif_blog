@@ -22,7 +22,57 @@
                 <span class="nav-link-text">Dashboard</span>
               </a>
             </li>
-            <li class="nav-item <?php if($this->uri->segment(3) == 'departments'){ ?>active_live <?php } ?>">
+            <li class="nav-item <?php if($this->uri->segment(2) == 'departments'){ ?>active_live <?php } ?>">
+            <!-- <a class="nav-link" href="<?php //echo base_url(); ?>Erp/View_erp/departments/list_departments"> -->
+              <a class="nav-link" href="<?php echo base_url(); ?>erp/departments">
+                <i class="ni ni-tag text-orange"></i>
+                <span class="nav-link-text">Departments</span>
+              </a>
+            </li>
+              <li class="nav-item <?php if($this->uri->segment(2) == 'customers'){ ?>active_live <?php } ?>">
+              <a class="nav-link" href="<?php echo base_url(); ?>erp/customers">
+                <i class="ni ni-tag text-orange"></i>
+                <span class="nav-link-text">Customer</span>
+              </a>
+            </li>
+            <li class="nav-item  <?php if($this->uri->segment(2) == 'employees'){ ?>active_live <?php } ?>">
+              <a class="nav-link" href="<?php echo base_url(); ?>erp/employees">
+                <i class="ni ni-tag text-primary"></i>
+                <span class="nav-link-text">Employee</span>
+              </a>
+            </li>
+            <li class="nav-item <?php if($this->uri->segment(2) == 'products'){ ?>active_live <?php } ?>">
+              <a class="nav-link" href="<?php echo base_url(); ?>erp/products">
+                <i class="ni ni-tag text-orange"></i>
+                <span class="nav-link-text">New Products</span>
+              </a>
+            </li>
+            <li class="nav-item <?php if($this->uri->segment(2) == 'spare_list'){ ?>active_live <?php } ?>">
+              <a class="nav-link" href="<?php echo base_url(); ?>erp/spare_list">
+                <i class="ni ni-tag text-orange"></i>
+                <span class="nav-link-text">Spares</span>
+              </a>
+            </li>
+            <li class="nav-item  <?php if($this->uri->segment(3) == 'supplier'){ ?>active_live <?php } ?>">
+              <a class="nav-link" href="<?php echo base_url(); ?>Erp/View_erp/supplier/list_supplier">
+                <i class="ni ni-tag text-default"></i>
+                <span class="nav-link-text">Suppliers</span>
+              </a>
+            </li>
+           
+            <li class="nav-item <?php if($this->uri->segment(2) == 'invoice_generation_list'){ ?>active_live <?php } ?>">
+              <a class="nav-link" href="<?php echo base_url(); ?>erp/invoice_generation_list">
+                <i class="ni ni-tag text-orange"></i>
+                <span class="nav-link-text">Invoice List</span>
+              </a>
+            </li>
+            <li class="nav-item <?php if($this->uri->segment(2) == 'invoices'){ ?>active_live <?php } ?>">
+              <a class="nav-link" href="<?php echo base_url(); ?>erp/invoices">
+                <i class="ni ni-tag text-orange"></i>
+                <span class="nav-link-text">Generate Invoices</span>
+              </a>
+            </li>
+            <!-- <li class="nav-item <?php if($this->uri->segment(3) == 'departments'){ ?>active_live <?php } ?>">
               <a class="nav-link" href="<?php echo base_url(); ?>Erp/View_erp/departments/list_departments">
                 <i class="ni ni-tag text-orange"></i>
                 <span class="nav-link-text">Departments</span>
@@ -63,7 +113,7 @@
                 <i class="ni ni-tag text-default"></i>
                 <span class="nav-link-text">Suppliers</span>
               </a>
-            </li>
+            </li> -->
           </ul>
           <!-- Divider -->
           <hr class="my-3">

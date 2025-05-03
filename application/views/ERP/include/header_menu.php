@@ -16,52 +16,89 @@
         <div class="collapse navbar-collapse" id="sidenav-collapse-main">
           <!-- Nav items -->
           <ul class="navbar-nav">
-          <li class="nav-item <?php if($this->uri->segment(3) == ''){ ?>active_live <?php } ?>">
+          <li class="nav-item <?php if($this->uri->segment(1) == ''){ ?>active_live <?php } ?>">
               <a class="nav-link active" href="<?php echo base_url(); ?>Erp">
                 <i class="ni ni-tv-2 text-primary"></i>
                 <span class="nav-link-text">Dashboard</span>
               </a>
             </li>
-            <li class="nav-item <?php if($this->uri->segment(3) == 'departments'){ ?>active_live <?php } ?>">
-              <a class="nav-link" href="<?php echo base_url(); ?>Erp/View_erp/departments/list_departments">
+            <li class="nav-item <?php if($this->uri->segment(2) == 'departments'){ ?>active_live <?php } ?>">
+            <!-- <a class="nav-link" href="<?php //echo base_url(); ?>Erp/View_erp/departments/list_departments"> -->
+              <a class="nav-link" href="<?php echo base_url(); ?>erp/departments">
                 <i class="ni ni-tag text-orange"></i>
                 <span class="nav-link-text">Departments</span>
               </a>
             </li>
-            <li class="nav-item <?php if($this->uri->segment(3) == 'customer'){ ?>active_live <?php } ?>">
+            <!-- <li class="nav-item <?php if($this->uri->segment(3) == 'customer'){ ?>active_live <?php } ?>">
               <a class="nav-link" href="<?php echo base_url(); ?>Erp/View_erp/customer/list_customer">
                 <i class="ni ni-tag text-orange"></i>
                 <span class="nav-link-text">Customer</span>
               </a>
+            </li> -->
+            <li class="nav-item <?php if($this->uri->segment(2) == 'customers'){ ?>active_live <?php } ?>">
+              <a class="nav-link" href="<?php echo base_url(); ?>erp/customers">
+                <i class="ni ni-tag text-orange"></i>
+                <span class="nav-link-text">Customer</span>
+              </a>
             </li>
-            <li class="nav-item  <?php if($this->uri->segment(3) == 'employee'){ ?>active_live <?php } ?>">
-              <a class="nav-link" href="<?php echo base_url(); ?>Erp/View_erp/employee/list_employee">
+            <li class="nav-item  <?php if($this->uri->segment(2) == 'employees'){ ?>active_live <?php } ?>">
+              <a class="nav-link" href="<?php echo base_url(); ?>erp/employees">
                 <i class="ni ni-tag text-primary"></i>
                 <span class="nav-link-text">Employee</span>
               </a>
             </li>
-            <li class="nav-item <?php if($this->uri->segment(3) == 'products'){ ?>active_live <?php } ?>">
+            <!-- <li class="nav-item <?php if($this->uri->segment(3) == 'products'){ ?>active_live <?php } ?>">
               <a class="nav-link" href="<?php echo base_url(); ?>Erp/View_erp/products/list_products">
                 <i class="ni ni-tag text-orange"></i>
                 <span class="nav-link-text">Products</span>
               </a>
+            </li> -->
+            <li class="nav-item <?php if($this->uri->segment(2) == 'products'){ ?>active_live <?php } ?>">
+              <a class="nav-link" href="<?php echo base_url(); ?>erp/products">
+                <i class="ni ni-tag text-orange"></i>
+                <span class="nav-link-text">New Products</span>
+              </a>
             </li>
-            <li class="nav-item <?php if($this->uri->segment(3) == 'departments'){ ?>active_live <?php } ?>">
-              <a class="nav-link" href="<?php echo base_url(); ?>Erp/View_erp/departments/list_departments">
+            <!-- <li class="nav-item <?php if($this->uri->segment(3) == ''){ ?>active_live <?php } ?>">
+              <a class="nav-link" href="<?php echo base_url(); ?>Erp/View_erp/departments/">
                 <i class="ni ni-tag text-orange"></i>
                 <span class="nav-link-text">Quotation</span>
               </a>
             </li>
-            <li class="nav-item <?php if($this->uri->segment(3) == 'departments'){ ?>active_live <?php } ?>">
-              <a class="nav-link" href="<?php echo base_url(); ?>Erp/View_erp/departments/list_departments">
+            <li class="nav-item <?php if($this->uri->segment(3) == ''){ ?>active_live <?php } ?>">
+              <a class="nav-link" href="<?php echo base_url(); ?>Erp/View_erp/departments/">
                 <i class="ni ni-tag text-orange"></i>
                 <span class="nav-link-text">Repairs</span>
+              </a>
+            </li> -->
+            <li class="nav-item <?php if($this->uri->segment(2) == 'spare_list'){ ?>active_live <?php } ?>">
+              <a class="nav-link" href="<?php echo base_url(); ?>erp/spare_list">
+                <i class="ni ni-tag text-orange"></i>
+                <span class="nav-link-text">Spares</span>
               </a>
             </li>
             <li class="nav-item  <?php if($this->uri->segment(3) == 'supplier'){ ?>active_live <?php } ?>">
               <a class="nav-link" href="<?php echo base_url(); ?>Erp/View_erp/supplier/list_supplier">
                 <i class="ni ni-tag text-default"></i>
                 <span class="nav-link-text">Suppliers</span>
+              </a>
+            </li>
+            <!-- <li class="nav-item  <?php if($this->uri->segment(2) == 'spares'){ ?>active_live <?php } ?>">
+              <a class="nav-link" href="<?php echo base_url(); ?>erp/spares">
+                <i class="ni ni-tag text-default"></i>
+                <span class="nav-link-text">Spares</span>
+              </a>
+            </li> -->
+            <li class="nav-item <?php if($this->uri->segment(2) == 'invoice_generation_list'){ ?>active_live <?php } ?>">
+              <a class="nav-link" href="<?php echo base_url(); ?>erp/invoice_generation_list">
+                <i class="ni ni-tag text-orange"></i>
+                <span class="nav-link-text">Invoice List</span>
+              </a>
+            </li>
+            <li class="nav-item <?php if($this->uri->segment(2) == 'invoices'){ ?>active_live <?php } ?>">
+              <a class="nav-link" href="<?php echo base_url(); ?>erp/invoices">
+                <i class="ni ni-tag text-orange"></i>
+                <span class="nav-link-text">Generate Invoices</span>
               </a>
             </li>
           </ul>
@@ -85,12 +122,12 @@
                 <span class="nav-link-text">GST Setting</span>
               </a>
             </li>
-            <li class="nav-item <?php if($this->uri->segment(3) == 'smtp'){ ?>active_live <?php } ?>"">
+            <!-- <li class="nav-item <?php if($this->uri->segment(3) == 'smtp'){ ?>active_live <?php } ?>"">
               <a class="nav-link" href="<?php echo base_url(); ?>Erp/View_erp/setting/smtp">
                 <i class="ni ni-key-25 text-dark"></i>
                 <span class="nav-link-text">SMTP Setting</span>
               </a>
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>

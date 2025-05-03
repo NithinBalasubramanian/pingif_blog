@@ -13,6 +13,7 @@ class ERP_model extends CI_Model{
 			$this->db->where('emp_name',$user_name);
 			$this->db->where('user_type',$password);
 			$result=$this->db->get();
+		
 			return $result->result_array();
 		}
 	public function table($table)

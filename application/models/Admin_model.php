@@ -22,6 +22,7 @@ class Admin_model extends CI_Model{
 		$this->db->where($column1, $val1);
 		}
 		$result = $this->db->get();
+		
 	//	return $this->db->last_query();
 		return $result->result_array();
 	}
