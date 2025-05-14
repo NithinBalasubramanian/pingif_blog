@@ -115,7 +115,7 @@
           <select class="form-control" name="department" id="department" required>
               <option value="">Select Department</option>
           </select>
-      </div>
+        </div>
         <div class="form-group">
             <label for="name">Secondary Contact</label><span>(optional)</span>
             <input type="text" class="form-control" placeholder="Enter Secondary Contact" name="sec_contact">
@@ -268,7 +268,7 @@ $(document).ready(function() {
             success: function(response) {
                 if (response.status === "success") {
                     let departmentDropdown = $("#department");
-                    // console.log("oi-de",departmentDropdown);
+                    console.log("oi-de",departmentDropdown);
                     
                     departmentDropdown.empty();
                     departmentDropdown.append('<option value="">Select Department</option>');

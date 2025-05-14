@@ -69,8 +69,17 @@ class Employee_model extends CI_Model {
     }
 
     // get all customers
-     public function get_all_customers() {
-        return $this->db->where('status', 1)->get('customers')->result_array();
+    //  public function get_all_customers() {
+    //     return $this->db->where('status', 1)->get('customers')->result_array();
+    // }
+
+      public function get_all_customers() {
+        $this->db->select('customers.*, departments.name as department_name');
+        $this->db->from('customers');
+        $this->db->join('departments', 'departments.id = customers.department_id', 'left');
+        $this->db->where('customers.status', 1);
+        
+        return $this->db->get()->result_array();
     }
 
     //get all products
@@ -87,6 +96,16 @@ class Employee_model extends CI_Model {
     // Insert new employee into database
     public function add_employee($data) {
         return $this->db->insert('employee', $data);
+    }
+
+     // Insert new customer into database
+     public function add_customer($data) {
+        return $this->db->insert('customers', $data);
+    }
+
+     // Get all active departments (status = 1)
+    public function get_active_products() {
+        return $this->db->where('status', 1)->get('erp_products')->result_array();
     }
 
      // Insert new employee into database
@@ -147,6 +166,20 @@ class Employee_model extends CI_Model {
 
     }
     
+
+    //get customer individual data
+    public function get_customer($id) {
+        return $this->db->get_where('customers', ['id' => $id])->row_array();
+    }
+
+    public function get_customer_products($customer_id) {
+        return $this->db->get_where('customer_products', ['customer_id' => $customer_id])->result_array();
+    }
+
+    public function add_product($data) {
+        $this->db->insert('customer_products', $data);
+        return $this->db->insert_id();
+    }
 
     
 }

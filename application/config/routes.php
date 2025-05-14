@@ -73,7 +73,12 @@ $route['erp/employee/update']          = 'Employee/update_employee';          //
 // $route['employee/delete/(:num)']   = 'Erp/delete_employee/$1';       // Delete employee
 
 $route['erp/customers']          = 'Employee/getCustomers';          // Process update form
+$route['erp/customer/add']             = 'Employee/add_customer';             // Show add employee form
 $route['erp/customer/update']          = 'Employee/update_customer';   
+
+$route['erp/customer_dashboard/(:any)']          = 'Employee/customer_dashboard/$1';   //customer individual display
+$route['erp/customer_products/add']          = 'Employee/add_customer_products';   //customer individual display
+$route['erp/json/products']                = 'Employee/getProductsJson';         // List employees   
 
 $route['erp/products']          = 'Employee/getProducts';          // Process update form
 $route['erp/product/update']          = 'Employee/update_product';   
