@@ -2,6 +2,19 @@
 <?php $this->load->view('ERP/include/popup.php'); ?>
 <?php $this->load->view('ERP/include/header_menu');?>
 
+<style>
+  .link-white-hover-blue {
+  color: white;           
+  text-decoration: none; 
+  transition: color 0.3s ease;
+}
+
+.link-white-hover-blue:hover {
+  color: #5e72e4;           
+}
+
+</style>
+
 <div class="header bg-primary pb-6">
       <div class="container-fluid">
         <div class="header-body">
@@ -17,7 +30,7 @@
               </nav>
             </div>
             <div class="col-lg-6 col-5 text-right">
-              <a href="javascript:void(0);" data-toggle="modal" data-target="#customer_entry" class="btn btn-sm btn-neutral">Add Customer</a>
+              <a href="javascript:void(0);" data-toggle="modal" data-target="#customer_add" class="btn btn-sm btn-neutral">Add Customer</a>
               <!-- <a href="javascript:void(0);" class="btn btn-sm btn-neutral list_del">List Deleted Customers</a> -->
             </div>
           </div>
@@ -49,7 +62,11 @@
                 <?php foreach ($customers as $customer): ?>
                 <tr class="dark_mode">
                         <td><?php echo $customer['id']; ?></td>
-                        <td><?php echo $customer['name']; ?></td>
+                        <td>
+                          <a class="link-white-hover-blue" href="<?= base_url('erp/customer_dashboard/'.$customer['id']) ?>">
+                            <?= $customer['name']; ?>
+                          </a>
+                        </td>
                         <td><?php echo $customer['contact']; ?></td>
                         <td><?php echo $customer['email']; ?></td>
                         <td><?php echo $customer['sec_contact']; ?></td>
@@ -79,6 +96,59 @@
           </div>
         </div>
       </div>
+
+      <!-- add customer -->
+    <div class="modal fade" id="customer_add" tabindex="-1" role="dialog" aria-labelledby="customerEntryModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add customer</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form id="customer_data_add" method="post">
+                    <div class="modal-body">
+                        <input type="hidden" name="status" value="1">
+            <div class="form-group">
+                <label for="name">customer Name</label><span>*</span>
+                <input type="text" class="form-control" placeholder="Enter customer Name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="name">Contact</label><span>*</span>
+                <input type="text" class="form-control" placeholder="Enter Contact" name="contact" required>
+            </div>
+            <div class="form-group">
+                <label for="name">Email Id</label><span>*</span>
+                <input type="text" class="form-control" placeholder="Enter Email Id" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="name">Address</label><span>*</span>
+                <textarea type="text" class="form-control" placeholder="Enter Address" name="address" required></textarea>
+            </div>
+            <div class="form-group">
+              <label for="department">Department</label><span></span>
+              <select class="form-control" name="department" id="department">
+                  <option value="">Select Department</option>
+              </select>
+            </div>
+            <div class="form-group">
+                <label for="name">Secondary Contact</label><span>(optional)</span>
+                <input type="text" class="form-control" placeholder="Enter Secondary Contact" name="sec_contact">
+            </div>
+            <div class="form-group">
+                <label for="name">Due</label><span>(optional)</span>
+                <input type="text" class="form-control" placeholder="Enter Due Amount" name="due">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-sm btn-primary">Save changes</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
 
       <!-- Modal for Editing customer -->
 <div class="modal fade" id="customer_edit" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -131,6 +201,50 @@
 <?php $this->load->view('ERP/include/footer');?>
 <?php $this->load->view('ERP/include/footer_script');?>
 <script>
+
+  // Fetch Departments when Modal Opens
+$(document).ready(function() {
+    $('#customer_add').on('shown.bs.modal', function () {
+        $.ajax({
+            url: "<?php echo base_url(); ?>erp/json/departments",
+            type: "GET",
+            dataType: "json",
+            success: function(response) {
+                if (response.status === "success") {
+                    let departmentDropdown = $("#department");
+                    console.log("oi-cus",departmentDropdown);
+                    
+                    departmentDropdown.empty();
+                    departmentDropdown.append('<option value="">Select Department</option>');
+                    $.each(response.departments, function(index, department) {
+                        departmentDropdown.append('<option value="' + department.id + '">' + department.name + '</option>');
+                    });
+                }
+            }
+        });
+    });
+    // Insert customer Data
+    $('#customer_data_add').submit(function(e) {
+        e.preventDefault(); // Prevent default form submission
+        $.ajax({
+            url: "<?php echo base_url(); ?>erp/customer/add",
+            type: "POST",
+            data: $(this).serialize(),
+            dataType: "json",
+            success: function(response) {
+                if (response.status === "success") {
+                    alert("customer added successfully!");
+                    $('#customer_add').modal('hide');
+                    location.reload(); // Reload the page to reflect changes
+                } else {
+                    alert("Failed to add customer. Please try again!");
+                }
+            },
+            error: function() {
+                alert("Error occurred while inserting customer data!");
+            }
+        });
+    });
     // $(document).ready(function(){
     //     list_data();
     // });
@@ -198,6 +312,7 @@
             alert("Error occurred while updating customer!");
         }
     });
+});
 });
 
     // $(document).on('click','.list_cus',function(){

@@ -124,6 +124,7 @@ class Employee extends CI_Controller {
         // Retrieve employees with status = 1 (active) using the get_all_employees method
         $data['customers'] = $this->Employee_model->get_all_customers();
     
+        // print_r($data);die; 
         // Load the view and pass the employees data
         $this->load->view('ERP/customer/index', $data);
     }
@@ -205,6 +206,58 @@ class Employee extends CI_Controller {
             echo json_encode(["status" => "error", "message" => "Failed to add employee."]);
         }
     }
+
+        // Insert new employee via AJAX
+        public function add_customer() {
+            $data = array(
+                'name'        => $this->input->post('name'),
+                'contact'     => $this->input->post('contact'),
+                'email'       => $this->input->post('email'),
+                'address'     => $this->input->post('address'),
+                'sec_contact' => $this->input->post('sec_contact'),
+                'due'         => $this->input->post('due'),
+                'department_id'  => $this->input->post('department'),
+                'status'      => 1 // Always insert as active
+            );
+    
+    
+            $insert = $this->Employee_model->add_customer($data);
+    
+            if ($insert) {
+                echo json_encode(["status" => "success", "message" => "customer added successfully!"]);
+            } else {
+                echo json_encode(["status" => "error", "message" => "Failed to add customer."]);
+            }
+        }
+
+         //get customer individual data
+        public function customer_dashboard($customer_id) {
+
+            // print_r($customer_id);die;
+            $data['customer'] = $this->Employee_model->get_customer($customer_id);
+            $data['products'] = $this->Employee_model->get_customer_products($customer_id);
+            $this->load->view('ERP/customer/customer_dashboard', $data);
+        }
+
+        public function add_customer_products() {
+            $productData = [
+                'customer_id' => $this->input->post('customer_id'),
+                'product_name' => $this->input->post('product_name'),
+                'installation_date' => $this->input->post('installation_date'),
+                'installed_by' => $this->input->post('installed_by'),
+                'warranty_months' => $this->input->post('warranty_months'),
+                'installed_on' => date('Y-m-d')
+            ];
+            $this->Employee_model->add_product($productData);
+            echo json_encode($productData);
+        }
+
+         // Get active departments and return as JSON
+        public function getProductsJson() {
+            $products = $this->Employee_model->get_active_products();
+            // print_r($products);die;
+            echo json_encode(["status" => "success", "products" => $products]);
+        }
 
      // Insert spares via AJAX
      public function add_spares() {
